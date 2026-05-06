@@ -14,7 +14,7 @@ class BosonicQuantumState:
                 st = tuple(st)
                 if len(st)!=dim:
                     raise ValueError("State with wrong dimension.")
-                if abs(coeff)>TOLL: # Per evitare che cose che andrebbero cancellate rimangono (es. HOM)
+                if abs(coeff)>TOLL: 
                     self.state[st] = self.state.get(st,0) + complex(coeff)
         self._clean()
 
@@ -78,8 +78,6 @@ class BosonicQuantumState:
             total_out = total_out + coeff*out
         return total_out
     
-    #def evolution_fast(self,U): 
-
     #### utilities
 
     def probability(self,out):
